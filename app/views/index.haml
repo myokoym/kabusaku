@@ -1,0 +1,7 @@
+%h1 株索α
+
+= form_tag("/", :method => "post") do
+  = text_field_tag(:query, :value => params[:query])
+  = submit_tag("Search")
+
+= @records
