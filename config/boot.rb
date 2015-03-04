@@ -40,8 +40,8 @@ Padrino.before_load do
         "-p", "10051",
         "-d",
         "--protocol", "http",
-        "--log-path", "kabusaku-groonga.log",
-        "--query-log-path", "kabusaku-query.log",
+        "--log-path", "log/kabusaku-groonga.log",
+        "--query-log-path", "log/kabusaku-query.log",
         db_path)
 end
 
