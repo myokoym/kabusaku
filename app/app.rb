@@ -14,10 +14,11 @@ module Kabusaku
 
     post "/" do
       query = URI.encode_www_form_component(params[:query])
-      url = build_query("select", {
-                                    "table" => "Stocks",
-                                    "query" => "name:@#{query}",
-                                  })
+      url = build_query("select",
+                        {
+                          "table" => "Stocks",
+                          "query" => "name:@#{query}",
+                        })
       @records = open(url, "r:utf-8").read
       render :index
     end
