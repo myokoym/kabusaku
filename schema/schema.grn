@@ -1,5 +1,9 @@
-table_create --name Stocks --flags TABLE_HASH_KEY --key_type ShortText
+table_create --name Dates --flags TABLE_HASH_KEY --key_type ShortText
 
+table_create --name Stocks --flags TABLE_NO_KEY
+
+column_create --table Stocks --name date --type Dates
+column_create --table Stocks --name code --type ShortText
 column_create --table Stocks --name name --type ShortText
 column_create --table Stocks --name market --type ShortText
 column_create --table Stocks --name business --type ShortText
@@ -12,5 +16,6 @@ column_create --table Stocks --name trading_value --type Int64
 
 table_create --name Terms --flags TABLE_PAT_KEY|KEY_NORMALIZE --key_type ShortText --default_tokenizer TokenBigram
 
+column_create --table Terms --name stock_date --flags COLUMN_INDEX|WITH_POSITION --type Stocks --source date
 column_create --table Terms --name stock_name --flags COLUMN_INDEX|WITH_POSITION --type Stocks --source name
 column_create --table Terms --name stock_market --flags COLUMN_INDEX|WITH_POSITION --type Stocks --source market
