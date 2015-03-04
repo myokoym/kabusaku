@@ -1,4 +1,4 @@
-require "open-uri"
+require "groonga/client"
 
 module Kabusaku
   class App < Padrino::Application
@@ -13,13 +13,15 @@ module Kabusaku
     end
 
     post "/" do
-      query = URI.encode_www_form_component(params[:query])
-      url = build_query("select",
-                        {
-                          "table" => "Stocks",
-                          "query" => "name:@#{query}",
-                        })
-      @records = open(url, "r:utf-8").read
+      Groonga::Client.open(:host => "localhost",
+                           :port => 10051,
+                           :protocol => :http) do |client|
+        response = client.select({
+                                   "table" => "Stocks",
+                                   "query" => "name:@#{params[:query]}",
+                                 })
+        @records = response.records
+      end
       render :index
     end
 

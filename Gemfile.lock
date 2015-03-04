@@ -7,6 +7,12 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    gqtp (1.0.6)
+    groonga-client (0.1.0)
+      gqtp (>= 1.0.4)
+      groonga-command (>= 1.0.8)
+    groonga-command (1.1.1)
+      json
     haml (4.0.6)
       tilt
     http_router (0.11.1)
@@ -79,6 +85,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  groonga-client
   haml
   padrino (= 0.12.4)
   rake
