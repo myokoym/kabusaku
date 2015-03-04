@@ -15,6 +15,19 @@ end
 
 rows.shift
 rows.shift
-rows.unshift(%w(_key date code market name business start high low finish volume trading_value))
+rows.unshift(%w(
+               _key
+               date
+               code
+               market
+               name
+               business
+               start
+               high
+               low
+               finish
+               volume
+               trading_value
+             ))
 
 JSON.dump(rows, $stdout)
