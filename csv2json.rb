@@ -14,7 +14,4 @@ rows.shift
 rows.shift
 rows.unshift(%w(_key market name business start high low finish volume trading_value))
 
-p rows
-exit
-
 JSON.dump(rows, $stdout)
